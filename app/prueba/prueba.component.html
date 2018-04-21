@@ -1,0 +1,23 @@
+<!-- <TextField row="0" col="2" hint="CVV"  secure="true" keyboardType="number" maxLength="3"></TextField> -->
+<ScrollView (scroll)="onScroll($event)">
+        <GridLayout class="m-15"rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                <!-- <Image src="res://burrito" row="0" stretch="none" horizontalAlignment="center"></Image> -->
+                <Label class="h3 m-5" height="50"  row="0" text="Numero de tarjeta"></Label>
+                <TextField row="1"  height="20" hint="Numero de tarjeta"  secure="false" keyboardType="number" maxLength="16"></TextField>
+                <Label class="h3 m-5" height="50" row="3" text="Nombre de la persona"></Label>
+                <!-- <ListPicker class="list" [items]="lugares" row="2" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker> -->
+                <TextField row="4"   height="20"  hint="Nombre de la persona"  secure="false"></TextField>
+                <GridLayout row="5" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                <Label class="h3 m-5" width="80" height="50" row="5" text="CVV"></Label>
+                <TextField class="h3 m-5" row="6" col="0" hint="CVV"  secure="true" keyboardType="number" maxLength="3"></TextField> 
+                <Label class="h3 m-5" width="150" height="50" row="5" text="Valid Date"  col="3" ></Label>
+                <!-- <TextField class="h3 m-5" row="6" col="3" hint="CVV"  secure="true" keyboardType="number" maxLength="3"></TextField>  -->
+                <DatePicker class="h3 m-5"   row="6" col="3"(loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)" 
+                (dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)" (yearChange)="onYearChanged($event)" 
+      verticalAlignment="center"></DatePicker>
+      
+               </GridLayout>
+               <button text="Finalizar" row="7"></button>
+        </GridLayout>
+        
+    </ScrollView>

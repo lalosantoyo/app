@@ -1,0 +1,78 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the NavigationButton as a side-drawer button in iOS is not possible, because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Perfil"></Label>
+</ActionBar>
+
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/Angular/SideDrawer/getting-started
+The RadSideDrawer component is designed to be used as a root element and
+it shouldn't have any other siblings other than the <ActionBar> component.
+-->
+<RadSideDrawer #drawer showOverNavigation="true" [drawerTransition]="sideDrawerTransition">
+    <!--
+    Use the tkDrawerContent directive to display the content of the app drawer on this page.
+    -->
+    <StackLayout tkDrawerContent>
+        <MyDrawer [selectedPage]="'Featured'"></MyDrawer>
+    </StackLayout>
+
+
+    <!--
+    Use the tkMainContent directive to display the content of the page when you have an app drawer.
+    -->
+     <GridLayout class="page page-content" tkMainContent>
+        <!-- <Label class="page-icon fa" text="&#xf005;"></Label>
+        <Label class="page-placeholder" text="! Page content goes here"></Label> -->
+        <!-- <img src="res://burrito" height="200px"> -->
+        
+        <!-- <FlexboxLayout flexDirection="column" class="registration-form" alignItems="center">
+
+    </FlexboxLayout> -->
+      
+
+    <ScrollView>
+    <StackLayout class="p-5 form">
+            
+        <StackLayout class="home">
+                    <img class="avatar" src="~/assets/mujer.png">
+                    <label class="name"[text]="name2"></label>
+                    <label class="fechana"[text]="name"></label>
+        </StackLayout>
+        <GridLayout class="m-15"rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto"  >
+                <GridLayout class="loco1" rows="0, auto, auto"></GridLayout>
+                <button class="perfil" width="250" row="o" text="Cambiar contraseña" (tap)="goToPass()"></button>
+
+        </GridLayout>
+        <label class="logros" text="Logros"></label>
+        <CardView>
+                <GridLayout class="loco" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                        <img row="1" class="img"  src="~/assets/b3.jpg" height="200px" width="200px" col="0">
+                        <label text="       " height="80px" row="1" col="1"></label>
+                        <img row="1" class="img"  src="~/assets/b3.jpg" height="200px" width="200px" col="2">
+                        <label text="       " height="80px" row="1" col="3"></label>
+                        <img row="1" class="img"  src="~/assets/b3.jpg" height="200px" width="200px" col="4">
+                        <img row="2" class="img"  src="~/assets/b3.jpg" height="200px" width="200px" col="0">
+                        <label text="       " height="80px" row="2" col="1"></label>
+                        <img row="2" class="img"  src="~/assets/b3.jpg" height="200px" width="200px" col="2">
+                        <label text="       " height="80px" row="2" col="3"></label>
+                        <img row="2" class="img"  src="~/assets/b3.jpg" height="200px" width="200px" col="4">
+                    </GridLayout>
+                   
+        </CardView>
+
+    </StackLayout>
+</ScrollView>
+    </GridLayout>  
+       
+</RadSideDrawer>

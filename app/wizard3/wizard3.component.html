@@ -1,0 +1,80 @@
+<ActionBar class="action-bar">
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android because ActionItems are shown on the right side of the ActionBar
+        -->
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the NavigationButton as a side-drawer button in iOS is not possible, because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Compras"></Label>
+    </ActionBar>
+    
+    <!--
+    RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+    Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+    http://docs.telerik.com/devtools/nativescript-ui/Controls/Angular/SideDrawer/getting-started
+    The RadSideDrawer component is designed to be used as a root element and
+    it shouldn't have any other siblings other than the <ActionBar> component.
+    -->
+    <RadSideDrawer #drawer showOverNavigation="true" [drawerTransition]="sideDrawerTransition">
+        <!--
+        Use the tkDrawerContent directive to display the content of the app drawer on this page.
+        -->
+        <StackLayout tkDrawerContent>
+            <MyDrawer [selectedPage]="'Home'"></MyDrawer>
+        </StackLayout>
+        
+        <!--
+        Use the tkMainContent directive to display the content of the page when you have an app drawer.
+        -->
+        
+    
+    
+        <GridLayout class="page page-content" tkMainContent>
+                <StackLayout> 
+                        <img row="0" src="~/assets/p3.png" height="200px">
+                        <label class="label" text="Selecciona un metodo de pago" row="0"></label>
+                    
+                    <ScrollView (scroll)="onScroll($event)">
+                            <GridLayout class="m-15"rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto"  >
+                                <GridLayout  row="1" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                                        <button class="btnp" width="100"  height="50" text="Efectivo" row="1" col="0" (tap)="ocultar()"></button>
+                                        <label row="1" text="            " col="1" width="100"></label>
+                                        <button  class="btnp" width="100"  height="50" text="tarjeta" row="1" col="2"  (tap)="ver()"></button>
+                                </GridLayout>
+                                <Label class="h3 m-5" height="50"  row="2" text="Numero de tarjeta"  [visibility]="isItemVisible ? 'visible' : 'collapsed'"></Label>
+                                    <TextField row="3"  height="20" hint="Numero de tarjeta"  secure="false" keyboardType="number" maxLength="16" [visibility]="isItemVisible ? 'visible' : 'collapsed'"></TextField>
+                                <GridLayout row="4" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                                        <Label class="h3 m-5" width="80" height="20" row="1" text="CVV" [visibility]="isItemVisible ? 'visible' : 'collapsed'"></Label>
+                                        <TextField class="h3 m-5"  width="80" row="2" col="0" hint="CVV"  secure="true" keyboardType="number" maxLength="3" [visibility]="isItemVisible ? 'visible' : 'collapsed'"></TextField> 
+                                        <TextField class="h3 m-5"  width="80" row="2" col="1" hint="Mes"  secure="false" keyboardType="number" maxLength="12" [visibility]="isItemVisible ? 'visible' : 'collapsed'"></TextField> 
+                                        <TextField class="h3 m-5"  width="80" row="2" col="2" hint="Año"  secure="false" keyboardType="number" maxLength="31" [visibility]="isItemVisible ? 'visible' : 'collapsed'"></TextField> 
+                                        
+                                        <!-- <TextField class="h3 m-5" row="6" col="3" hint="CVV"  secure="true" keyboardType="number" maxLength="3"></TextField>  -->
+                                        
+                              
+                                       </GridLayout>
+                                    <!-- <Image src="res://burrito" row="0" stretch="none" horizontalAlignment="center"></Image> -->
+                                    
+                                    <Label class="h3 m-5" height="50" row="5" text="Nombre de la persona" [visibility]="isItemVisible ? 'visible' : 'collapsed'"></Label>
+                                    <!-- <ListPicker class="list" [items]="lugares" row="2" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker> -->
+                                    <TextField row="6"   height="20"  hint="Nombre de la persona"  secure="false" [visibility]="isItemVisible ? 'visible' : 'collapsed'"></TextField>
+                                 
+                            </GridLayout>
+                            
+                        </ScrollView>
+                        <GridLayout class="m-15" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                                <button class="btn" width="50"  height="50"  row="1" col="0" (tap)="wizard()"  text="<"></button>
+                                 
+                                <button class="btn" width="250"  height="50"  row="1" col="2" (tap)="mostrar()"  text="Confirmar"></button> 
+                    
+                        </GridLayout>
+                    </StackLayout>            
+        
+                
+         </GridLayout> 
+         
+    </RadSideDrawer> 

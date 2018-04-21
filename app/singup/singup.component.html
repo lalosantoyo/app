@@ -1,0 +1,34 @@
+<StackLayout flexDirection="column" class="registration-form" alignItems="center">
+        <ScrollView>
+               
+
+        <StackLayout class="fondo">
+                        <img class="img" src="~/assets/logob.png" width="400px">
+                        <label class="text" text="Registro"></label>
+
+    <TextField hint="Nombre(s)" hint="Nombre(s)"style="placeholder-color:white;"></TextField>
+    
+    <TextField hint="Apellido Paterno"style="placeholder-color:white;"></TextField>
+   
+    <TextField hint="Apellido Materno"style="placeholder-color:white;" ></TextField>
+   
+    <TextField hint="Fecha de nacimiento "style="placeholder-color:white;"></TextField>
+    
+    <TextField hint="Usuario" style="placeholder-color:white;" ></TextField>
+  
+    <TextField hint="Contraseña"style="placeholder-color:white;" secure="true"></TextField>
+ 
+    <TextField hint="Telefono"></TextField>
+    <!-- <TextField hint="SOME HINT" style="color:#04ccf0;placeholder-color:white;"></TextField> -->
+
+
+    <Button text="Registrarse" (tap)="log()"style="color:rgb(255, 153, 0);placeholder-color:white;" class="btn"></Button>
+    <label class="text1" text="Ó"></label>
+
+    <Button text="Facebook" class="btn-primary" (tap)="goToSignUp()"></Button>
+
+
+        </StackLayout>
+        
+</ScrollView>
+</StackLayout>

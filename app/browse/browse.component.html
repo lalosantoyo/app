@@ -1,0 +1,77 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the NavigationButton as a side-drawer button in iOS is not possible, because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Mensajes"></Label>
+</ActionBar>
+
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/Angular/SideDrawer/getting-started
+The RadSideDrawer component is designed to be used as a root element and
+it shouldn't have any other siblings other than the <ActionBar> component.
+-->
+<RadSideDrawer #drawer showOverNavigation="true" [drawerTransition]="sideDrawerTransition">
+    <!--
+    Use the tkDrawerContent directive to display the content of the app drawer on this page.
+    -->
+    <StackLayout tkDrawerContent>
+        <MyDrawer [selectedPage]="'Browse'"></MyDrawer>
+    </StackLayout>
+    
+    <!--
+    Use the tkMainContent directive to display the content of the page when you have an app drawer.
+    -->
+    <GridLayout class="page page-content" tkMainContent>
+           
+            
+
+        <!-- <Label class="page-icon fa" text="&#xf1ea;"></Label> -->
+        <StackLayout>
+            <ScrollView>
+                    <!--the chat takes place here--> 
+                    <GridLayout class="s" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                            <img class="avatar"col="1" row="0" src="~/assets/burrito.png" height="60" width="60">
+                            <StackLayout row="0" col="2">
+                                    <GridLayout class="loco" rows="0, auto, auto" columns="auto, auto, *">
+                                            <label class="la" text="Estamos muy cerca de ti, dame un momento y te entregamos tu burrito." class="info" textWrap="true" row="1" colSpan="3" ></label>
+                                        </GridLayout> 
+                                        <label class="hora" text="01:00 am" row="1" col="2"></label>
+                            </StackLayout> 
+                    </GridLayout>
+            </ScrollView>
+            <ScrollView   #scrollview height="70%"  >
+                    <!--the chat takes place here--> 
+                    <GridLayout class="s" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                            <img class="avatar"col="3" row="0" src="~/assets/mujer.png" height="60" width="60">
+                            <Label text="              " col="0"></Label>
+                            <StackLayout row="0" col="1">
+                                    <GridLayout class="loco1" rows="0, auto, auto" columns="auto, auto, *">
+                                            <label class="la1" text="Ok." class="info" textWrap="true" row="1" colSpan="3" ></label>
+                                        </GridLayout> 
+                                        <label class="hora" text="01:00 am" row="1" col="2"></label>
+                            </StackLayout> 
+                               
+
+                    </GridLayout>
+                    
+            </ScrollView>
+            <StackLayout height="10%">
+                <GridLayout columns="*,auto" style="padding: 5">
+                    <TextField  #textfield class="chatTextField" hint="Escribir Mensaje...." width="300" row="0" col="0" [(ngModel)]="message"></TextField>
+                    <img  class="chatBtn" row="0" col="1" text="send" height="50" width="50" (tap)=chat(message) src="~/assets/send.png">
+                    <!-- metodo para el boton en el chat  (tap)=chat(message) -->
+                </GridLayout>
+            </StackLayout>
+        </StackLayout>
+    </GridLayout>
+   
+</RadSideDrawer>

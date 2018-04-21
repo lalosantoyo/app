@@ -1,0 +1,48 @@
+<ActionBar title="Chat">
+</ActionBar>
+ 
+<GridLayout
+  rows="auto, *, auto">
+  <StackLayout row="0">
+    <Label
+      class="other-name"
+      [text]="other.name"></Label>
+  </StackLayout>
+  <ListView
+    #chatBox
+    separatorColor="transparent"
+    class="chat-box"
+    [items]="messages"
+    row="1">
+    <template let-item="item">
+      <StackLayout>
+        <TextView
+          editable="false"
+          class="message-content"
+          text="{{ item.content }}"></TextView>
+        <Label
+          text="{{ item.date }}"
+          class="message-date"></Label>
+      </StackLayout>
+    </template>
+  </ListView>
+  <StackLayout
+    #messageBox
+    row="2">
+    <StackLayout class="message-box-container">
+      <GridLayout
+        columns="*, auto"
+        class="message-box">
+        <TextView
+          #newMessage
+          col="0"
+          hint="Write a message..."
+          class="write-message-field" ></TextView>
+        <Label
+          col="1"
+          text="Send"
+          class="send-button"></Label>
+      </GridLayout>
+    </StackLayout>
+  </StackLayout>
+</GridLayout>

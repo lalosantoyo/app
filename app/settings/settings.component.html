@@ -1,0 +1,67 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the NavigationButton as a side-drawer button in iOS is not possible, because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Aplicacion"></Label>
+</ActionBar>
+
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/Angular/SideDrawer/getting-started
+The RadSideDrawer component is designed to be used as a root element and
+it shouldn't have any other siblings other than the <ActionBar> component.
+-->
+<RadSideDrawer #drawer showOverNavigation="true" [drawerTransition]="sideDrawerTransition">
+    <!--
+    Use the tkDrawerContent directive to display the content of the app drawer on this page.
+    -->
+    <StackLayout tkDrawerContent>
+        <MyDrawer [selectedPage]="'Settings'"></MyDrawer>
+    </StackLayout>
+   
+    <!--
+    Use the tkMainContent directive to display the content of the page when you have an app drawer.
+    -->
+    <GridLayout class="page page-content" tkMainContent>
+        <!-- <Label class="page-icon fa" text="&#xf013;"></Label> -->
+        <!-- <StackLayout>
+            <label text="sdgfdsf"></label>
+            <textView  text="L o r e m   i p s u m   d o l o r   s i t   a m e t , consectetur   adipiscing   elit,   sed   do eiusmod  tempor  incididunt  ut  labore et  dolore  magna  aliqua.  Ut  enim  ad m i n i m   v e n i a m ,   q u i s   n o s t r u d exercitation   ullamco   laboris   nisi   ut aliquip ex ea commodo consequat.">
+                </textView>
+                <br>
+                <StackLayout>
+                        <label text="sdgfdsf"></label>
+                        <textView  text="L o r e m   i p s u m   d o l o r   s i t   a m e t , consectetur   adipiscing   elit,   sed   do eiusmod  tempor  incididunt  ut  labore et  dolore  magna  aliqua.  Ut  enim  ad m i n i m   v e n i a m ,   q u i s   n o s t r u d exercitation   ullamco   laboris   nisi   ut aliquip ex ea commodo consequat.">
+                            </textView>
+                    </StackLayout>
+        </StackLayout> -->
+        <ScrollView>
+            <StackLayout class="p-5 form">
+        <Label [text]="error"></Label>
+        <img src="res://burrito" height="200px">
+<Label class="h3 p-15" [text]="'El  Niño  de  los  Burritos  es  una  aplicación móvil que te permite ordenar comida para que posteriormente   te   sea   llevada   a   donde   te encuentras. '" textWrap="true"></Label>
+<Label class="h3 p-15" [text]="'                      Versión de App2.0'" textWrap="true"></Label>
+<Label class="h3 p-15" [text]="'El  Niño  de  los  burritos  es  un  producto  de Familia Burrera A.C de S.V.'" textWrap="true"></Label>
+<Label class="sa" [text]="'     ©2017 El Niño de los Burritos y su familia burrera '" textWrap="true"></Label>
+<Label class="h3 p-15" [text]="'Si necesitas revisar los ter minos y condiciones lo puedes hacer en el siguiente '" textWrap="true"></Label>
+<Label class="Link" [text]="'     Enlace '" (tap)=" opens()"[src]="firstWebViewSRC" textWrap="true"></Label>
+<a  text="Link" href="http://familiaburrera.tk/ "></a>
+<Label class="h3 p-15"[text]="'                    Desarrollado por CCEO '" textWrap="true"></Label>
+
+<!-- <Label class="h3 p-15" [text]="counter + ' L o r e m   i p s u m   d o l o r   s i t   a m e t , consectetur   adipiscing   elit,   sed   do eiusmod  tempor  incididunt  ut  labore et  dolore  magna  aliqua.  Ut  enim  ad m i n i m   v e n i a m ,   q u i s   n o s t r u d exercitation   ullamco   laboris   nisi   ut aliquip ex ea commodo consequat.'" textWrap="true"></Label> -->
+
+
+
+            </StackLayout>
+        </ScrollView>     
+    </GridLayout>
+    
+</RadSideDrawer>

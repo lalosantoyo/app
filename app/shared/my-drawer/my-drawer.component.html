@@ -1,0 +1,33 @@
+<!--
+The MyDrawer custom component view is where you define what will be displayed in the app drawer.
+Feel free to customize layouts and components to change how your app drawer looks.
+-->
+<GridLayout rows="auto, *" class="sidedrawer sidedrawer-left">
+    <StackLayout row="0" class="sidedrawer-header">
+        
+        <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+        <Label class="sidedrawer-header-brand" text="User Name"></Label>
+        <Label class="footnote" text="Usuario"></Label>
+    </StackLayout>
+
+    <ScrollView row="1">
+        <StackLayout class="sidedrawer-content">
+            <MyDrawerItem title="Comprar" route="/home" icon="&#xf015;" [isSelected]="isPageSelected('Home')">
+            </MyDrawerItem>
+        <StackLayout [visibility]="isItemVisible ? 'visible' : 'collapsed'"  >
+            <MyDrawerItem title="Mensajes" route="/browse" icon="&#xf1ea;" [isSelected]="isPageSelected('Browse')">
+        </MyDrawerItem>
+    </StackLayout>            
+            <MyDrawerItem title="Historial" route="/search" icon="&#xf002;" [isSelected]="isPageSelected('Search')">
+            </MyDrawerItem>
+            <MyDrawerItem title="Perfil" route="/featured" icon="&#xf005;" [isSelected]="isPageSelected('Featured')">
+            </MyDrawerItem>
+            <MyDrawerItem title="promociones" route="/inicio" icon="" [isSelected]="isPageSelected('inicio')">
+            </MyDrawerItem>
+            <StackLayout class="hr-light"></StackLayout>
+            <MyDrawerItem title="aplicacion" route="/settings" icon="&#xf013;" [isSelected]="isPageSelected('Settings')">
+            </MyDrawerItem>
+            <button text="mostrar" (tap)=" showMainContent()" ></button>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

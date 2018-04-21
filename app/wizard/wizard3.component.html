@@ -1,0 +1,39 @@
+<StackLayout> 
+    <img row="0" src="~/assets/p3.png" height="200px">
+    <label class="label" text="Selecciona un metodo de pago" row="0"></label>
+
+<ScrollView (scroll)="onScroll($event)">
+        <GridLayout class="m-15"rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto"  >
+            <GridLayout  row="1" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                    <button class="btnp" width="100"  height="50" text="Efectivo" row="1" col="0"></button>
+                    <label row="1" text="            " col="1" width="100"></label>
+                    <button  class="btnp" width="100"  height="50" text="tarjeta" row="1" col="2"></button>
+            </GridLayout>
+            <Label class="h3 m-5" height="50"  row="2" text="Numero de tarjeta"></Label>
+                <TextField row="3"  height="20" hint="Numero de tarjeta"  secure="false" keyboardType="number" maxLength="16"></TextField>
+            <GridLayout row="4" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                    <Label class="h3 m-5" width="80" height="20" row="1" text="CVV"></Label>
+                    <TextField class="h3 m-5"  width="80" row="2" col="0" hint="CVV"  secure="true" keyboardType="number" maxLength="3"></TextField> 
+                    <TextField class="h3 m-5"  width="80" row="2" col="1" hint="Mes"  secure="false" keyboardType="number" maxLength="12"></TextField> 
+                    <TextField class="h3 m-5"  width="80" row="2" col="2" hint="Año"  secure="false" keyboardType="number" maxLength="31"></TextField> 
+                    
+                    <!-- <TextField class="h3 m-5" row="6" col="3" hint="CVV"  secure="true" keyboardType="number" maxLength="3"></TextField>  -->
+                    
+          
+                   </GridLayout>
+                <!-- <Image src="res://burrito" row="0" stretch="none" horizontalAlignment="center"></Image> -->
+                
+                <Label class="h3 m-5" height="50" row="5" text="Nombre de la persona"></Label>
+                <!-- <ListPicker class="list" [items]="lugares" row="2" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker> -->
+                <TextField row="6"   height="20"  hint="Nombre de la persona"  secure="false"></TextField>
+             
+        </GridLayout>
+        
+    </ScrollView>
+    <GridLayout class="m-15" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+            <button class="btn" width="50"  height="50"  row="1" col="0" (tap)="wizard()"  text="<"></button>
+             
+            <button class="btn" width="250"  height="50"  row="1" col="2"   text="Confirmar"></button> 
+
+    </GridLayout>
+</StackLayout>

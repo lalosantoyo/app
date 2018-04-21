@@ -1,0 +1,26 @@
+<GridLayout>
+
+        <GridLayout #background
+          scaleX="1.4"
+          scaleY="1.4"
+          class="background"
+          (loaded)="startBackgroundAnimation(background)"></GridLayout>
+        <StackLayout class="fondo" >
+                <img class="img" src="~/assets/logob.png"height="200px">
+                <label class="msj" text="Iniciar Sesión"></label>
+                <br>
+            
+            <TextField class="es" hint="Teléfono o Correo"  width="600px" style="placeholder-color:white;" ></TextField>
+            
+            
+            <TextField hint="Contraseña "  width="600px" secure="true" [(ngModel)]="password" style="placeholder-color:white;" > </TextField>
+            
+            <Button text="Entrar" width="600px" (tap)=" goTohome()"style="color:white;placeholder-color:white;" class="btn"></Button>
+                <label class="text1" text="Ó"></label>
+            
+                <Button text="Facebook"  width="600px" class="btn-primary" (tap)="goToSignUp()"></Button>
+                <label class="repass" text="Olvide mi contaseña" #container  (tap)="repass()"></label>
+    
+        </StackLayout>
+
+</GridLayout>

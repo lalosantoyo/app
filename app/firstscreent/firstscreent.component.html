@@ -1,0 +1,24 @@
+<GridLayout>
+
+        <GridLayout #background
+          scaleX="1.4"
+          scaleY="1.4"
+          class="background"
+          (loaded)="startBackgroundAnimation(background)"></GridLayout>
+        <StackLayout class="fondo">
+                <img class="img" src="~/assets/logob.png"height="200px">
+    <br>
+
+<ScrollView>
+    <StackLayout class="la" width="600px">
+            <Label class="text" [text]="'Nuestro  deseo  es  que  tengas  un servicio  y  producto  de  calidad,  sea divertida   la   interacción   móvil-e m p r e s a   y   d i s f r u t e s   t o d o   e l proceso.'" textWrap="true"></Label>
+
+    </StackLayout>
+</ScrollView>
+
+<Button text="Entrar" class="btn" (tap)="goTohome()"width="400px"></Button>
+
+<Button class="res" text="Registro"  (tap)="goToSignUp()" width="400px"></Button>
+</StackLayout>
+
+</GridLayout>

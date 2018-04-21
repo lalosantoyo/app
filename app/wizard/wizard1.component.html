@@ -1,0 +1,38 @@
+<ActionBar title="Comprar"></ActionBar>
+<StackLayout >
+        <img row="0" src="~/assets/p1.png" height="200px">
+        <label class="label" row="0"text="Selecciona el lugar de tu entrega"  height="100px"></label>
+        <CardView>
+                <GridLayout class="loco" rows="0, auto, auto" columns="auto, auto, *">
+                <DropDown #dd
+                          [class]="cssClass"
+                          [items]="items"
+                          [(ngModel)]="selectedIndex"
+                          [hint]="hint"
+                          (selectedIndexChanged)="onchange($event)"
+                          (opened)="onopen()"
+                          (closed)="onclose()"
+                          row="1"
+                          colSpan="2">
+                        </DropDown>
+                </GridLayout>
+                <GridLayout class="espacio1" rows="0, auto, auto" columns="auto, auto, *">
+                    </GridLayout>
+                <GridLayout class="loco1" rows="1, auto, auto" columns="auto, auto, *">
+                        <DropDown #dd
+                          [class]="cssClass"
+                          [items]="pokemons"
+                          [(ngModel)]="selectedIndex"
+                          [hint]="hint2"
+                          (selectedIndexChanged)="onchange($event)"
+                          (opened)="onopen()"
+                          (closed)="onclose()"
+                          row="1"
+                          colSpan="2"></DropDown>
+                   </GridLayout>
+                   <GridLayout class="espacio" rows="0, auto, auto" columns="auto, auto, *">
+                    </GridLayout>
+        </CardView>
+        <button class="btn" width="150"  height="50"  row="5"   (tap)="wizard()" text=">"></button> 
+
+</StackLayout>

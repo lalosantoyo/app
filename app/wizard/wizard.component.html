@@ -1,0 +1,44 @@
+
+    <StackLayout >
+
+            <img row="0" src="~/assets/p2.png" height="200px">
+    <ScrollView (scroll)="onScroll($event)">
+            
+        <GridLayout class="m-15" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                
+            <Label class="h3 m-5" width="150" height="50" row="1" text="Burro de verde"></Label>
+            <Label width="30"  width="10" height="50" row="1" class="h3 m-15" col="2" text="0"></Label>
+            <button width="30" width="30"height="50"  row="1" class="h3 m-15" col="1" text="+"></button>
+            <button width="30" width="30" height="50"  row="1" class="h3 m-15" col="3" text="-"></button>
+    
+            <Label class="h3 m-5" width="150" height="50" row="2" text="Burro de rojo"></Label>
+            <Label width="30"  width="10" height="50" row="2" class="h3 m-15" col="2" text="0"></Label>
+            <button width="30" width="30"height="50"  row="2" class="h3 m-15" col="1" text="+"></button>
+            <button width="30" width="30" height="50"  row="2" class="h3 m-15" col="3" text="-"></button>
+    
+            <Label class="h3 m-5" width="150" height="50" row="3" text="Burro de bistec"></Label>
+            <Label width="30"  width="10" height="50" row="3" class="h3 m-15" col="2" text="0"></Label>
+            <button width="30" width="30"height="50"  row="3" class="h3 m-15" col="1" text="+"></button>
+            <button width="30" width="30" height="50"  row="3" class="h3 m-15" col="3" text="-"></button>
+    
+            <Label class="h3 m-5" width="150" height="50" row="4" text="Burro de papas"></Label>
+            <Label width="30"  width="10" height="50" row="4" class="h3 m-15" col="2" text="0"></Label>
+            <button width="30" width="30"height="50"  row="4" class="h3 m-15" col="1" text="+"></button>
+            <button width="30" width="30" height="50"  row="4" class="h3 m-15" col="3" text="-"></button>
+            
+            
+            
+    
+        </GridLayout>
+       
+               
+
+    </ScrollView>
+    <GridLayout class="m-15" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+            <button class="btnn" width="150"  height="50"  row="1" col="0" (tap)="wizard1()"  text="<"></button>
+            <label text="      " width="50"row="1" col="1"></label> 
+            <button class="btnm" width="150"  height="50"  row="1" col="2"  (tap)="wizard3()"  text=">"></button> 
+
+    </GridLayout>
+    
+    </StackLayout>

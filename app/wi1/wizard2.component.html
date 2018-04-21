@@ -1,0 +1,86 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the NavigationButton as a side-drawer button in iOS is not possible, because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Compras"></Label>
+</ActionBar>
+
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/Angular/SideDrawer/getting-started
+The RadSideDrawer component is designed to be used as a root element and
+it shouldn't have any other siblings other than the <ActionBar> component.
+-->
+
+<RadSideDrawer #drawer showOverNavigation="true" [drawerTransition]="sideDrawerTransition">
+    <!--
+    Use the tkDrawerContent directive to display the content of the app drawer on this page.
+    -->
+    <StackLayout tkDrawerContent>
+        <MyDrawer [selectedPage]="'Home'"></MyDrawer>
+    </StackLayout>
+    
+    <!--
+    Use the tkMainContent directive to display the content of the page when you have an app drawer.
+    -->
+    
+    
+
+    <ScrollView class="page page-content" tkMainContent>
+            <StackLayout >
+                    <img row="0" src="~/assets/p2.png" height="200px">
+
+                        <SackLayout *ngFor="let name of name">
+
+                                    <GridLayout    columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto"  >
+                                            <Label class="h3 m-5" width="150" height="50" row="0" id="productss" [text]="name"></Label>
+                                            <Label width="20"  height="50" row="0" class="h3 m-15" col="2" text="0"  [text]="result" (tap)="hola(name)"></Label>
+                                            <button width="40"height="50"  row="0" class="la" col="1" text="+"   (tap)="suma(name)"></button>
+                                            <button width="40" height="50"  row="0" class="la" col="3" text="-"  (tap)="resta()"></button>
+                                    </GridLayout>
+                            
+                            </SackLayout>
+                    
+                       
+                        
+                    
+            
+                   
+                   
+                    <!-- <Label class="h3 m-5" width="150" height="50" row="3" text="Burro de bistec"></Label>
+                    <Label width="20"   height="50" row="3" class="h3 m-15" col="2" text="0" [text]="result2"></Label>
+                    <button width="40"height="50"  row="3" class="la" col="1" text="+" (tap)="suma2()"></button>
+                    <button width="40" height="50"  row="3" class="la" col="3" text="-"  (tap)="resta2()"></button>
+            
+                    <Label class="h3 m-5" width="150" height="50" row="4" text="Burro de papas"></Label>
+                    <Label width="20"  height="50" row="4" class="h3 m-15" col="2" text="0"  [text]="result3"></Label>
+                    <button width="40" height="50"  row="4" class="la" col="1" text="+"(tap)="suma3()" ></button>
+                    <button width="40"  height="50"  row="4" class="la" col="3" text="-"  (tap)="resta3()"></button>
+                    
+                    
+                     -->
+            
+                
+               
+                      
+                
+        
+            <GridLayout class="m-15" columns="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                    <button class="btnn" width="150"  height="50"  row="1" col="0" (tap)="wizard1()"  text="<"></button>
+                    <label text="      " width="50"row="1" col="1"></label> 
+                    <button class="btnm" width="150"  height="50"  row="1" col="2"  (tap)="wizard3()"  text=">"></button> 
+        
+            </GridLayout>
+            
+            </StackLayout> 
+        </ScrollView>
+        
+</RadSideDrawer> 
